@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\units">
+      <UniqueIdentifier>{9b9d77b0-3202-402e-be69-07f64ac683a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\full_text">
+      <UniqueIdentifier>{6a61efb1-9ab7-4df9-bd14-a7dd118c251c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\chapters">
+      <UniqueIdentifier>{f286b478-f875-42b8-8fe7-e93a83eaf3c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\audio">
+      <UniqueIdentifier>{fb1a9d06-7ff3-4e2e-ba87-f539846018da}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\graphics">
+      <UniqueIdentifier>{e4071b0d-4913-47ea-b2ba-ad4fb15e12d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\fonts">
+      <UniqueIdentifier>{3175eb85-d9b7-4935-8bd6-1ae5d730e3e2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="screens.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="testyourknowledge.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="screens.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="testyourknowledge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="answer_correct.wav">
+      <Filter>Resource Files\audio</Filter>
+    </Media>
+    <Media Include="answer_wrong.wav">
+      <Filter>Resource Files\audio</Filter>
+    </Media>
+    <Media Include="background_music.wav">
+      <Filter>Resource Files\audio</Filter>
+    </Media>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="incorrect_box_24.bmp">
+      <Filter>Resource Files\graphics</Filter>
+    </Image>
+    <Image Include="game_background_24.bmp">
+      <Filter>Resource Files\graphics</Filter>
+    </Image>
+    <Image Include="correct_box_24.bmp">
+      <Filter>Resource Files\graphics</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="font_subheader.pcx">
+      <Filter>Source Files\fonts</Filter>
+    </None>
+    <None Include="font_header.pcx">
+      <Filter>Source Files\fonts</Filter>
+    </None>
+    <None Include="font_body.pcx">
+      <Filter>Source Files\fonts</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="allchapters.txt">
+      <Filter>Source Files\full_text</Filter>
+    </Text>
+    <Text Include="chapter1.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter2.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter3.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter4.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter5.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter6.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter8.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter7.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter9.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter10.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter11.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter13.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter12.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter14.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter15.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter17.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter16.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter19.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter18.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter20.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter21.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="chapter22.txt">
+      <Filter>Source Files\chapters</Filter>
+    </Text>
+    <Text Include="unit7.txt">
+      <Filter>Source Files\units</Filter>
+    </Text>
+    <Text Include="unit8.txt">
+      <Filter>Source Files\units</Filter>
+    </Text>
+    <Text Include="unit6.txt">
+      <Filter>Source Files\units</Filter>
+    </Text>
+    <Text Include="unit5.txt">
+      <Filter>Source Files\units</Filter>
+    </Text>
+    <Text Include="unit3.txt">
+      <Filter>Source Files\units</Filter>
+    </Text>
+    <Text Include="unit2.txt">
+      <Filter>Source Files\units</Filter>
+    </Text>
+    <Text Include="unit4.txt">
+      <Filter>Source Files\units</Filter>
+    </Text>
+    <Text Include="unit1.txt">
+      <Filter>Source Files\units</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
