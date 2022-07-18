@@ -194,6 +194,39 @@ int handle_choose_chapter_option() {
 	}
 }
 
+
+int get_game_input() {
+	if (key[KEY_ESC]) {
+		return 'q';
+	}
+	else {
+		if (key[KEY_A]) {
+			return 'a';
+		}
+		else if (key[KEY_B]) {
+			return 'b';
+		}
+		else if (key[KEY_C]) {
+			return 'c';
+		}
+		else if (key[KEY_D]) {
+			return 'd';
+		}
+		else {
+			return 'f';
+		}
+	}
+}
+
+int handle_game_input() {
+	while (1) {
+		int result = get_game_input();
+		if (result != 'f') {
+			return result;
+		}
+	}
+}
+
 /*
 Checks if the selection variable is either 2 or 3, and if so, resets the selection and max_selection
 variables accordingly and returns 1 or 2. Otherwise, -1 is return to indicate that the selection
@@ -321,18 +354,54 @@ int main(void) {
 		generate_quiz("allchapters.txt");
 	}
 	// Initializing game variables
-	//int score = 0;
-	//int question_tracker = 0;
-	//char score_char[3];
-	//char total_questions[3];
-	//char result[1];
-	//sprintf(score_char, "%d", score);
-	//sprintf(total_questions, "%d", quiz.num_questions);
+	int score = 0;
+	int question_tracker = 0;
+	char score_char[3];
+	char total_questions[3];
+	
+	sprintf(score_char, "%d", score);
+	sprintf(total_questions, "%d", quiz.num_questions);
+	draw_game_screen(score_char, total_questions);
+	int question_order = quiz.question_order[0];
+	draw_question(quiz.questions[question_order], quiz.options[question_order][0], quiz.options[question_order][1],
+		quiz.options[question_order][2], quiz.options[question_order][3]);
+	char correct_answer = quiz.answers[question_order][0];
+	int answer = handle_game_input();
+	if (answer == 'q') {
+		end_game();
+		exit(0);
+	}
+	if (answer == correct_answer) {
+		play_sample(correct_ding, volume, panning, frequency, FALSE);
+		display_correct();
+		score++;
+	}
+	else {
+		play_sample(wrong_buzzer, volume, panning, frequency, FALSE);
+		display_wrong();
+	}
 
-	//// Game loop
-	//for (int questions = 0; questions < quiz.num_questions; questions++) {
-	//	draw_game_screen(score_char, total_questions);
-	//}
+	// Game loop
+	/*for (int i = 0; i < quiz.num_questions; i++) {
+		draw_game_screen(score_char, total_questions);
+		int question_order = quiz.question_order[i];
+		draw_question(quiz.questions[question_order], quiz.options[question_order][0], quiz.options[question_order][1],
+			quiz.options[question_order][2], quiz.options[question_order][3]);
+		char answer = handle_game_input();
+		if (answer == "q") {
+			end_game();
+			exit(0);
+		}
+		if (answer == quiz.answers[question_order]) {
+			play_sample(correct_ding, volume, panning, frequency, FALSE);
+			display_correct();
+			score++;
+		}
+		else {
+			play_sample(wrong_buzzer, volume, panning, frequency, FALSE);
+			display_wrong();
+		}
+	}*/
 	
 	
 
