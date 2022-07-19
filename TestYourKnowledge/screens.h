@@ -49,7 +49,8 @@ void draw_welcome_screen();
 void draw_game_screen(char* score_char, char* total_questions);
 void draw_question(const char* question, const char* option1, const char* option2, const char* option3, const char* option4);
 void display_correct();
-void display_wrong();
+void display_wrong(char correct_answer);
+void highlight_selected_answer(char selected_answer);
 void end_game();
 
 #endif // !screens

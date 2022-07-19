@@ -191,14 +191,44 @@ void draw_question(const char* question, const char* option1, const char* option
 }
 
 void display_correct() {
-	blit(correct, buffer, 0, 0, 300, 500, 200, 50);
+	blit(correct, buffer, 0, 0, 300, 490, 200, 50);
 	acquire_screen();
 	blit(buffer, screen, 0, 0, 0, 0, 800, 600);
 	release_screen();
 }
 
-void display_wrong() {
-	blit(wrong, buffer, 0, 0, 300, 500, 200, 50);
+void display_wrong(char correct_answer) {
+	blit(wrong, buffer, 0, 0, 300, 490, 200, 50);
+	char correct_answer_string[128] = "Correct Answer: ";
+	char correct_answer_char[2] = "\0";
+	correct_answer_char[0] = correct_answer;
+	strcat(correct_answer_string, correct_answer_char);
+	textout_centre_ex(buffer, font_subheader, correct_answer_string, SCREEN_W / 2, 540, LT_PURPLE, -1);
+	acquire_screen();
+	blit(buffer, screen, 0, 0, 0, 0, 800, 600);
+	release_screen();
+}
+
+void highlight_selected_answer(char selected_answer) {
+	char selected_answer_string[128] = "Selected Answer: ";
+	char selected_answer_char[2] = "\0";
+	selected_answer_char[0] = selected_answer;
+	if (selected_answer == 'a') {
+		strcat(selected_answer_string, selected_answer_char);
+		textout_centre_ex(buffer, font_subheader, selected_answer_string, SCREEN_W / 2, 445, LT_PURPLE, -1);
+	}
+	else if (selected_answer == 'b') {
+		strcat(selected_answer_string, selected_answer_char);
+		textout_centre_ex(buffer, font_subheader, selected_answer_string, SCREEN_W / 2, 445, LT_PURPLE, -1);
+	}
+	else if (selected_answer == 'c') {
+		strcat(selected_answer_string, selected_answer_char);
+		textout_centre_ex(buffer, font_subheader, selected_answer_string, SCREEN_W / 2, 445, LT_PURPLE, -1);
+	}
+	else {
+		strcat(selected_answer_string, selected_answer_char);
+		textout_centre_ex(buffer, font_subheader, selected_answer_string, SCREEN_W / 2, 445, LT_PURPLE, -1);
+	}
 	acquire_screen();
 	blit(buffer, screen, 0, 0, 0, 0, 800, 600);
 	release_screen();

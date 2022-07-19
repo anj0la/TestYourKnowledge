@@ -194,7 +194,6 @@ int handle_choose_chapter_option() {
 	}
 }
 
-
 int get_game_input() {
 	if (key[KEY_ESC]) {
 		return 'q';
@@ -234,17 +233,13 @@ chosen was the full text.
 */
 int check_selected_quiz_option() {
 	if (selection == 2) {
-		// Resetting selection and changing max_selection
 		selection = 1;
 		max_selection = 8;
-		//draw_choose_unit_mode_screen();
 		return 1;
 	}
 	else if (selection == 3) {
-		// resetting selection and changing max_selection
 		selection = 1;
 		max_selection = 22;
-		//draw_choose_chapter_mode_screen();
 		return 2;
 	}
 	return -1;
@@ -353,62 +348,42 @@ int main(void) {
 	else { // selection = -1, generate quiz based on entire text
 		generate_quiz("allchapters.txt");
 	}
+
 	// Initializing game variables
 	int score = 0;
 	int question_tracker = 0;
-	char score_char[3];
-	char total_questions[3];
-	
-	sprintf(score_char, "%d", score);
+	char score_char[5];
+	char total_questions[5];
 	sprintf(total_questions, "%d", quiz.num_questions);
-	draw_game_screen(score_char, total_questions);
-	int question_order = quiz.question_order[0];
-	draw_question(quiz.questions[question_order], quiz.options[question_order][0], quiz.options[question_order][1],
-		quiz.options[question_order][2], quiz.options[question_order][3]);
-	char correct_answer = quiz.answers[question_order][0];
-	int answer = handle_game_input();
-	if (answer == 'q') {
-		end_game();
-		exit(0);
-	}
-	if (answer == correct_answer) {
-		play_sample(correct_ding, volume, panning, frequency, FALSE);
-		display_correct();
-		score++;
-	}
-	else {
-		play_sample(wrong_buzzer, volume, panning, frequency, FALSE);
-		display_wrong();
-	}
+
 
 	// Game loop
-	/*for (int i = 0; i < quiz.num_questions; i++) {
+	for (int i = 0; i < quiz.num_questions; i++) {
+		sprintf(score_char, "%d", score);
 		draw_game_screen(score_char, total_questions);
 		int question_order = quiz.question_order[i];
 		draw_question(quiz.questions[question_order], quiz.options[question_order][0], quiz.options[question_order][1],
 			quiz.options[question_order][2], quiz.options[question_order][3]);
-		char answer = handle_game_input();
-		if (answer == "q") {
+		char correct_answer = quiz.answers[question_order][0];
+		int answer = handle_game_input();
+		if (answer == 'q') {
 			end_game();
 			exit(0);
 		}
-		if (answer == quiz.answers[question_order]) {
+		else {
+			highlight_selected_answer(answer);
+		}
+		if (answer == correct_answer) {
 			play_sample(correct_ding, volume, panning, frequency, FALSE);
 			display_correct();
 			score++;
 		}
 		else {
 			play_sample(wrong_buzzer, volume, panning, frequency, FALSE);
-			display_wrong();
+			display_wrong(correct_answer);
 		}
-	}*/
-	
-	
-
-
-
-	// play_sample(correct_ding, volume, panning, frequency, FALSE);
-	// play_sample(wrong_buzzer, volume, panning, frequency, FALSE);
+		rest(1500); // Slows game down between each question
+	}
 
 	while (!key[KEY_ESC]);
 	end_game();
